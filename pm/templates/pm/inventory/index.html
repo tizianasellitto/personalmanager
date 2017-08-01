@@ -1,7 +1,7 @@
 {% if inventory_list %}
     <ul>
     {% for item in inventory_list %}
-        <li><a href="/polls/{{ question.id }}/">{{ item.name }}</a></li>
+        <li><a href="{% url 'inventory_detail' item.id %}">{{ item.name }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

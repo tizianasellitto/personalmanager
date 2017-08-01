@@ -7,6 +7,8 @@ class Inventory(models.Model):
     color = models.CharField(max_length=50)
     weight = models.IntegerField(default=0)
     note = models.CharField(max_length=200)
+    class Meta:
+        unique_together = ('name', 'manufacturer', 'color')
     # # ...
     # def __str__(self):
     #     return self.name
