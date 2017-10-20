@@ -6,5 +6,6 @@ urlpatterns = [
     # url(r'^$', views.index, name='index'),
     url(r'^inventory/index', views.inventory_index, name='inventory_index'),
     url(r'^inventory/(?P<item_id>[0-9]+)/$', views.inventory_detail, name='inventory_detail'),
-    url(r'^inventory/new', views.inventory_new, name='new'),
+    url(r'^inventory/new', views.inventory_new, name='inventory_new'),
+    url(r'^inventory/edit/(?P<item_id>\d+)$', views.inventory_update, name='inventory_edit'),
 ]

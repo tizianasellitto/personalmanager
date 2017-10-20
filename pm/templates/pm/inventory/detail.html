@@ -1,2 +1,4 @@
 <h1>{{ item.name }}</h1>
 <h1>{{ item.description }}</h1>
+
+<a href="{% url 'inventory_edit' item.id %}">edit</a>

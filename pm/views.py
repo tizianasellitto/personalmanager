@@ -22,4 +22,13 @@ def inventory_new(request):
             return redirect('inventory_detail', item_id=inventory_item.pk)
     else:
         form = InventoryForm()
-    return render(request, 'pm/inventory/new.html', {'form': form})
+    return render(request, 'pm/inventory/form.html', {'form': form})
+
+
+def inventory_update(request, item_id, template_name='pm/inventory/form.html'):
+    inventory_item = get_object_or_404(Inventory, pk=item_id)
+    form = InventoryForm(request.POST or None, instance=inventory_item)
+    if form.is_valid():
+        form.save()
+        return redirect('inventory_detail', item_id=inventory_item.pk)
+    return render(request, template_name, {'form':form})
